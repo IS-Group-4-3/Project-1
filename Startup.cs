@@ -62,7 +62,7 @@ namespace Project_1
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSession();
+            //app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -75,8 +75,8 @@ namespace Project_1
 
 
 
-                endpoints.MapDefaultControllerRoute();
-                endpoints.MapRazorPages();
+                //endpoints.MapDefaultControllerRoute();
+                //endpoints.MapRazorPages();
             });
 
             // Seed data function
