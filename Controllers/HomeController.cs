@@ -13,10 +13,20 @@ namespace Project_1.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        //variables for the database and the pagesize
+        //private databaseRepo _repo;
+        //public int PageSize = 5;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
+
+        // this is for later when we get the database up
+        //public HomeController(ILogger<HomeController> logger, datebaseRepo repo)
+        //{
+        //    _logger = logger;
+        //    _repo = repo;
+        //}
 
         public IActionResult Index()
         {
@@ -28,14 +38,46 @@ namespace Project_1.Controllers
             return View();
         }
 
+        // New ViewAppointments Action for when we get that working
+        //public IActionResult ViewAppointments(DateTime timeslot, int pageNum = 1)
+        //{
+        //    return View(new AppointmentsListViewModel
+        //    {
+        //        Appointments = _repo.appointments
+        //            .Where(p => timeslot == null || p.timeslsot == timeslot)
+        //            .OrderBy(p => p.AppointmentID)
+        //            .Skip((pageNum - 1) * PageSize)
+        //            .Take(PageSize)
+        //        ,
+        //        PagingInfo = new PagingInfo
+        //        {
+        //            CurrentPage = pageNum,
+        //            ItemsPerPage = PageSize,
+        //            TotalNumItems = timeslot == null ? _repo.appointments.Count() :
+        //                _repo.appointments.Where(x => x.timeslot == timeslot).Count()
+        //        },
+        //        CurrentDateTime = timeslot
+        //    });
+        //}
         public IActionResult SignUp()
         {
             return View();
         }
 
-        //public IActionResult Form(int timeslotId)
+        //new SignUp action for when we get that working
+        //public IActionResult SignUp()
         //{
-        //    return PartialView();
+        //    return View(new AppointmentsListViewModel
+        //    {
+        //        Appointments = _repo.appointments,
+        //        PagingInfo = null,
+        //        CurrentDate = null
+        //    }) ;
+        //}
+
+        //public IActionResult Form(int AppointmentID)
+        //{
+        //    return View();
         //}
         public IActionResult Privacy()
         {
