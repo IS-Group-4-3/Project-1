@@ -5,4 +5,12 @@
     <RootNamespace>Project_1</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Components\" />
+    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Pages\Shared\" />
+    <Folder Include="Views\Shared\Components\" />
+  </ItemGroup>
+
 </Project>

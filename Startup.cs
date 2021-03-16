@@ -24,6 +24,27 @@ namespace Project_1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+
+            // All the services from our last assignment
+            //
+            //services.AddDbContext<*name*DbContext>(options =>
+            //{
+
+            //    //Converted to SQLite Database
+            //    options.UseSqlite(Configuration["ConnectionStrings:*name*Connection"]);
+            //});
+            //// Heres the second service added
+            //services.AddScoped<*name*Repo, EF*name*Repo>();
+
+            ////All of these services to be able to do the cart and use sessions
+            //services.AddRazorPages();
+
+            //services.AddDistributedMemoryCache();
+            //services.AddSession();
+            //services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +62,7 @@ namespace Project_1
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -51,7 +72,15 @@ namespace Project_1
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
+
+            // Seed data function
+            //SeedData.EnsurePopulated(app);
         }
     }
 }
