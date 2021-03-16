@@ -25,7 +25,6 @@ namespace Project_1
         {
             services.AddControllersWithViews();
 
-
             // All the services from our last assignment
             //
             //services.AddDbContext<*name*DbContext>(options =>
