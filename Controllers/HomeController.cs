@@ -32,6 +32,11 @@ namespace Project_1.Controllers
         {
             return View();
         }
+
+        //public IActionResult Form(int timeslotId)
+        //{
+        //    return PartialView();
+        //}
         public IActionResult Privacy()
         {
             return View();
