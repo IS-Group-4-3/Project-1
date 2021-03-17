@@ -10,15 +10,31 @@
         <h1 class="display-4">Sign-Up for a Tour!</h1>
     </div>
     <table class="table table-bordered table-striped">
-        @foreach (var y in Model.appointments)
-        {
+        
             <thead>
                 <tr>
                     <th>
-                        @y.Day
+                        M
+                    </th>
+                    <th>
+                        T
+                    </th>
+                    <th>
+                        W
+                    </th>
+                    <th>
+                        TH
+                    </th>
+                    <th>
+                        F
+                    </th>
+                    <th>
+                        S
+                    </th>
+                    <th>
+                        Su
                     </th>
                 </tr>
-
             </thead>
             @foreach (var x in Model.appointments)
             {

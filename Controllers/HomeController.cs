@@ -66,7 +66,7 @@ namespace Project_1.Controllers
         {
             return View(new AppointmentsListViewModel
             {
-                appointments = _repo.appointments
+                appointments = _repo.appointments,
                 //PagingInfo = null,
                 //CurrentDate = null
             });
