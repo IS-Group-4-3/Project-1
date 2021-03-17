@@ -1,0 +1,25 @@
+﻿@model Group
+
+<form method="post">
+    <div>
+        <label asp-for="Name">Group Name: </label>
+        <input asp-for="Name" required />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Size">Size: </label>
+        <input asp-for="Size" required />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Email">Email: </label>
+        <input asp-for="Email" required />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Phone">Phone: </label>
+        <input asp-for="Phone" required />
+    </div>
+    <br />
+    <button type="submit">Submit</button>
+</form>
