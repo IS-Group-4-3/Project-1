@@ -332,7 +332,7 @@ namespace Project_1.Models
                     },
                     new Appointment
                     {
-                        AppointmentID = 39
+                        AppointmentID = 39,
                         Day = "Thursday",
                         Hour = 10,
                         AmPm = "AM",
@@ -340,7 +340,7 @@ namespace Project_1.Models
                     },
                     new Appointment
                     {
-                        AppointmentID = 40
+                        AppointmentID = 40,
                         Day = "Thursday",
                         Hour = 11,
                         AmPm = "AM",
