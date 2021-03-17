@@ -79,8 +79,8 @@ namespace Project_1
                 //endpoints.MapRazorPages();
             });
 
-            // Seed data function
-            //SeedData.EnsurePopulated(app);
+            //Seed data function
+            SeedData.EnsurePopulated(app);
         }
     }
 }
