@@ -13,7 +13,13 @@ namespace Project_1.Models
         public int AppointmentID { get; set; } //appointment id
 
         [Required]
-        public DateTime Timeslot { get; set; } //timeslot for temple visit 
+        public string Day { get; set; } //day of week for temple visit
+
+        [Required]
+        public int Hour { get; set; } //hour of day
+
+        [Required]
+        public string AmPm { get; set; } //whether it is morning or afternoon (AM or PM) 
 
         [Required]
         public bool Available { get; set; } //whether the appointment is available or not

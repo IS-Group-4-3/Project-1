@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_1.Models
 {
-    public class Group : Appointment //group class inherits from appointment class 
+    public class Group 
     {
         [Key]
         [Required]
@@ -21,7 +21,10 @@ namespace Project_1.Models
         [Required]
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
-        public string Email { get; set; } //email address 
+        public string Email { get; set; } //email address
+
+        [Required]
+        public int AppointmentID { get; set; } //appointment that the group signs up for
 
         [Phone]
         public int Phone { get; set; } //phone number (optional)
