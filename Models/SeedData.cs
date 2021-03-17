@@ -8,7 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 
 //SeedData.cs provides the logic for populating the database initially, if needed. 
 
-
 namespace Project_1.Models
 {
     public class SeedData
