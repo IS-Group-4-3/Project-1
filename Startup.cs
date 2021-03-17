@@ -34,8 +34,8 @@ namespace Project_1
                 options.UseSqlite(Configuration["ConnectionStrings:AppointmentConnection"]);
             });
 
-            //// Heres the second service added
-            //services.AddScoped<*name*Repo, EF*name*Repo>();
+            // Heres the second service added
+            services.AddScoped <IAppointmentRepo,EFAppointmentsRepo> ();
 
             ////All of these services to be able to do the cart and use sessions
             //services.AddRazorPages();
