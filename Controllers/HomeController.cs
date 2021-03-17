@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Project_1.Models;
+using Project_1.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,19 +15,15 @@ namespace Project_1.Controllers
         private readonly ILogger<HomeController> _logger;
 
         //variables for the database and the pagesize
-        //private databaseRepo _repo;
-        //public int PageSize = 5;
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        private IAppointmentRepo _repo;
+        public int PageSize = 5;
 
         // this is for later when we get the database up
-        //public HomeController(ILogger<HomeController> logger, datebaseRepo repo)
-        //{
-        //    _logger = logger;
-        //    _repo = repo;
-        //}
+        public HomeController(ILogger<HomeController> logger, IAppointmentRepo repo)
+        {
+            _logger = logger;
+            _repo = repo;
+        }
 
         public IActionResult Index()
         {
@@ -59,21 +56,21 @@ namespace Project_1.Controllers
         //        CurrentDay = day
         //    });
         //}
-        public IActionResult SignUp()
-        {
-            return View();
-        }
-
-        //new SignUp action for when we get that working
         //public IActionResult SignUp()
         //{
-        //    return View(new AppointmentsListViewModel
-        //    {
-        //        Appointments = _repo.appointments,
-        //        PagingInfo = null,
-        //        CurrentDate = null
-        //    }) ;
+        //    return View();
         //}
+
+        //new SignUp action for when we get that working
+        public IActionResult SignUp()
+        {
+            return View(new AppointmentsListViewModel
+            {
+                appointments = _repo.appointments
+                //PagingInfo = null,
+                //CurrentDate = null
+            });
+        }
 
         //public IActionResult Form(int AppointmentID)
         //{
