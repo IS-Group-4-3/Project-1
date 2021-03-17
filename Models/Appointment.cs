@@ -22,7 +22,7 @@ namespace Project_1.Models
         public string AmPm { get; set; } //whether it is morning or afternoon (AM or PM) 
 
         [Required]
-        public bool Available { get; set; } //whether the appointment is available or not
+        public bool Available { get; set; } = true; //whether the appointment is available or not
 
     }
 
