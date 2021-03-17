@@ -34,14 +34,6 @@ namespace Project_1
                 options.UseSqlite(Configuration["ConnectionStrings:AppointmentConnection"]);
             });
 
-            // All the services from our last assignment
-            //
-            //services.AddDbContext<*name*DbContext>(options =>
-            //{
-
-            //    //Converted to SQLite Database
-            //    options.UseSqlite(Configuration["ConnectionStrings:*name*Connection"]);
-            //});
             //// Heres the second service added
             //services.AddScoped<*name*Repo, EF*name*Repo>();
 

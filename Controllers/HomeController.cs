@@ -39,12 +39,12 @@ namespace Project_1.Controllers
         }
 
         // New ViewAppointments Action for when we get that working
-        //public IActionResult ViewAppointments(DateTime timeslot, int pageNum = 1)
+        //public IActionResult ViewAppointments(string day, int pageNum = 1)
         //{
         //    return View(new AppointmentsListViewModel
         //    {
         //        Appointments = _repo.appointments
-        //            .Where(p => timeslot == null || p.timeslsot == timeslot)
+        //            .Where(p => day == null || p.day == day)
         //            .OrderBy(p => p.AppointmentID)
         //            .Skip((pageNum - 1) * PageSize)
         //            .Take(PageSize)
@@ -53,10 +53,10 @@ namespace Project_1.Controllers
         //        {
         //            CurrentPage = pageNum,
         //            ItemsPerPage = PageSize,
-        //            TotalNumItems = timeslot == null ? _repo.appointments.Count() :
-        //                _repo.appointments.Where(x => x.timeslot == timeslot).Count()
+        //            TotalNumItems = day == null ? _repo.appointments.Count() :
+        //                _repo.appointments.Where(x => x.day == day).Count()
         //        },
-        //        CurrentDateTime = timeslot
+        //        CurrentDay = day
         //    });
         //}
         public IActionResult SignUp()
