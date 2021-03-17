@@ -8,7 +8,7 @@ using Project_1.Models;
 namespace Project_1.Migrations
 {
     [DbContext(typeof(AppointmentContext))]
-    [Migration("20210317194831_Initial")]
+    [Migration("20210317212804_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
