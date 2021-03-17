@@ -5,42 +5,6 @@
 
 @model AppointmentsListViewModel
 
-<div class="text-center">
-    <div>
-        <h1 class="display-4">Sign-Up for a Tour!</h1>
-        <h5>Available Tours for Sunday, March 21, 2021</h5>
-    </div>
-    <br />
-    <form>
-        <input type="button" value="8:00 AM" />
-        <br /> <br />
-        <input type="button" value="9:00 AM" />
-        <br /> <br />
-        <input type="button" value="10:00 AM" />
-        <br /> <br />
-        <input type="button" value="11:00 AM" />
-        <br /> <br />
-        <input type="button" value="12:00 PM" />
-        <br /> <br />
-        <input type="button" value="1:00 PM" />
-        <br /> <br />
-        <input type="button" value="2:00 PM" />
-        <br /> <br />
-        <input type="button" value="3:00 PM" />
-        <br /> <br />
-        <input type="button" value="4:00 PM" />
-        <br /> <br />
-        <input type="button" value="5:00 PM" />
-        <br /> <br />
-        <input type="button" value="6:00 PM" />
-        <br /> <br />
-        <input type="button" value="7:00 PM" />
-        <br /> <br />
-        <input type="button" value="8:00 PM" />
-        <br /> <br />
-
-    </form>
-</div>
 
 <!-- If we want a dropdown menu for each date 
 <div>
@@ -65,20 +29,28 @@
     <button type="submit">Submit The Movie</button>
 </div>
 -->
+<table class="table table-bordered table-striped">
+    @foreach (var y in Model.appointments)
+    {
+        <thead>
+                <tr>
+                    <th>
+                        @y.Day
+                    </th>
+                </tr>
 
-<thead>
-    <tr>
-        <th>
-            Day
-        </th>
-        <th>
-            Time
-        </th>
-        <th>
-            Availble
-        </th>
-    </tr>
-    
-</thead>
-<tbody>
-</tbody>
+        </thead>
+        @foreach (var x in Model.appointments)
+        { 
+        <tbody>
+            <tr>
+                <td>
+                    @x.Hour
+                    @x.AmPm
+                </td>
+            </tr>
+
+        </tbody>
+        }
+    }
+    </table>
