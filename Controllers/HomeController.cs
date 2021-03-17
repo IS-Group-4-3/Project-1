@@ -73,10 +73,12 @@ namespace Project_1.Controllers
             }); ;
         }
 
-        //public IActionResult Form(int AppointmentID)
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult Form(int AppointmentID)
+        {
+            ViewBag.AppID = AppointmentID;
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
