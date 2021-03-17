@@ -8,7 +8,6 @@ namespace Project_1.Models
 {
     public class Appointment
     {
-        [Key]
         [Required]
         public int AppointmentID { get; set; } //appointment id
 
