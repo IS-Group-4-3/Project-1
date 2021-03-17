@@ -9,45 +9,78 @@
     <div>
         <h1 class="display-4">Sign-Up for a Tour!</h1>
     </div>
-    <table class="table table-bordered table-striped">
-        
-            <thead>
-                <tr>
-                    <th>
-                        M
-                    </th>
-                    <th>
-                        T
-                    </th>
-                    <th>
-                        W
-                    </th>
-                    <th>
-                        TH
-                    </th>
-                    <th>
-                        F
-                    </th>
-                    <th>
-                        S
-                    </th>
-                    <th>
-                        Su
-                    </th>
-                </tr>
-            </thead>
+    @*<table class="table table-bordered table-striped">
+
+        <thead>
+            <tr>
+                <th>
+                    M
+                </th>
+                <th>
+                    T
+                </th>
+                <th>
+                    W
+                </th>
+                <th>
+                    TH
+                </th>
+                <th>
+                    F
+                </th>
+                <th>
+                    S
+                </th>
+                <th>
+                    Su
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
             @foreach (var x in Model.appointments)
             {
-                <tbody>
+                @if (x.Day == "Monday")
+                {
                     <tr>
                         <td>
                             @x.Hour
                             @x.AmPm
                         </td>
                     </tr>
-
-                </tbody>
+                }
             }
-        }
+        </tbody>
+    </table>*@
+
+    <table class="table table-bordered table-striped">
+
+        <thead>
+            <tr>
+                <th>
+                    Day
+                </th>
+                <th>
+                    Time
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var x in Model.appointments)
+            {
+                
+              
+                    <tr>
+                        <td>
+                            @x.Day
+                        </td>
+                        <td>
+                            @x.Hour
+                            @x.AmPm
+                        </td>
+                    </tr>
+            }
+        </tbody>
     </table>
 </div>

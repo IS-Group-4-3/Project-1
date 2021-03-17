@@ -66,10 +66,11 @@ namespace Project_1.Controllers
         {
             return View(new AppointmentsListViewModel
             {
-                appointments = _repo.appointments,
+                appointments = _repo.appointments
+                .OrderBy(p => p.AppointmentID)
                 //PagingInfo = null,
                 //CurrentDate = null
-            });
+            }); ;
         }
 
         //public IActionResult Form(int AppointmentID)
