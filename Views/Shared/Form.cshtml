@@ -3,6 +3,7 @@
 <div>
     <h5>Please Fill Out This Form to Reserve a Tour</h5>
     <br />
+    <p>Appointment for @ViewBag.App[0].Day at  @ViewBag.App[0].Hour@ViewBag.App[0].AmPm</p>
 </div>
 <form method="post" asp-controller="Home" asp-action="Index">
     <div>
@@ -25,6 +26,6 @@
         <input asp-for="Phone" />
     </div>
     <br />
-    <input type="hidden" asp-for="AppointmentID" value="@ViewBag.AppID"/>
+    <input type="hidden" asp-for="AppointmentID" value="@ViewBag.App[0].AppointmentID"/>
     <button type="submit">Submit</button>
 </form>

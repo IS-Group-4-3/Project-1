@@ -81,7 +81,17 @@ namespace Project_1.Controllers
         [HttpPost]
         public IActionResult Form(int AppointmentID)
         {
-            ViewBag.AppID = AppointmentID;
+            var app = (from appo in _repoA.appointments
+                       where appo.AppointmentID == AppointmentID
+                       select new Appointment()
+                       {
+                           Day = appo.Day,
+                           Hour = appo.Hour,
+                           AmPm = appo.AmPm,
+                           AppointmentID = appo.AppointmentID
+                       }).ToList();
+
+            ViewBag.App = app;
 
             return View();
         }
