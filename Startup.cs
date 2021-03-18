@@ -69,14 +69,38 @@ namespace Project_1
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    "home",
+                    "Homepage",
+                    new { Controller = "Home", action = "Index" }
+                    );
 
                 endpoints.MapControllerRoute(
                     "day",
-                    "{day}",
-                    new { Controller = "Home", action = "Index" }
+                    "SignUp/{day}",
+                    new { Controller = "Home", action = "SignUp" }
                     );
+
+                endpoints.MapControllerRoute(
+                    "signup",
+                    "SignUp",
+                    new { Controller = "Home", action = "SignUp" }
+                    );
+
+                endpoints.MapControllerRoute(
+                    "form",
+                    "SignUp/Form",
+                    new { Controller = "Home", action = "Form" }
+                    );
+
+                endpoints.MapControllerRoute(
+                    "viewapps",
+                    "ViewAppointments",
+                    new { Controller = "Home", action = "ViewAppointments" }
+                    );
+
+                endpoints.MapDefaultControllerRoute();
+
+
             });
 
             //Seed data function
