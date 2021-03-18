@@ -15,16 +15,16 @@ namespace Project_1.Controllers
         private readonly ILogger<HomeController> _logger;
 
         //variables for the database and the pagesize
-        private IAppointmentRepo _repo;
+        private IAppointmentRepo _repoA;
         public int PageSize = 5;
         private AppointmentContext _context { get; set; }
 
 
         // this is for later when we get the database up
-        public HomeController(ILogger<HomeController> logger, IAppointmentRepo repo, AppointmentContext con)
+        public HomeController(ILogger<HomeController> logger, IAppointmentRepo repoA, AppointmentContext con)
         {
             _logger = logger;
-            _repo = repo;
+            _repoA = repoA;
             _context = con;
         }
 
@@ -45,13 +45,24 @@ namespace Project_1.Controllers
         }
         public IActionResult ViewAppointments()
         {
-            return View(new AppointmentsListViewModel
-            {
-                appointments = _repo.appointments
-                .Where(p => p.Available == false)
-                //PagingInfo = null,
-                //CurrentDate = null
-            });
+            
+            var results = (from app in _context.Appointments
+                           join gr in _context.Groups
+                           on app.AppointmentID equals gr.AppointmentID
+                           select new CombinedViewModel()
+                           {
+                               Day = app.Day,
+                               Hour = app.Hour,
+                               AmPm = app.AmPm,
+                               Available = app.Available,
+                               Name = gr.Name,
+                               Size = gr.Size,
+                               Email = gr.Email
+                           }).ToList();
+
+            ViewBag.results = results;
+
+            return View();
         }
 
         // New ViewAppointments Action for when we get that working
@@ -82,7 +93,7 @@ namespace Project_1.Controllers
         {
             return View(new AppointmentsListViewModel
             {
-                appointments = _repo.appointments
+                appointments = _repoA.appointments
                 .OrderBy(p => p.AppointmentID)
             }); 
         }

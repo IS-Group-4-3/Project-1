@@ -2,8 +2,6 @@
     ViewData["Title"] = "View Appointments";
 }
 
-@model AppointmentsListViewModel
-
 <div class="text-center">
     <div>
         <h1 class="display-4">Appointments</h1>
@@ -16,10 +14,10 @@
         </thead>
         <tbody>
         @* loops through appointments to show only booked appointments. *@    
-            @foreach (var x in Model.appointments)
+            @foreach (var x in ViewBag.results)
             {
                 <tr>
-                    <td>@x.Day</td><td>@x.Hour @x.AmPm</td><td>@x.AppointmentID</td>
+                    <td>@x.Day</td><td>@x.Hour @x.AmPm</td><td>@x.Name</td>
                 </tr>
             }
         </tbody>
