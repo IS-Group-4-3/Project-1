@@ -14,26 +14,25 @@ namespace Project_1.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        //variables for the database and the pagesize
+        //variables for the database
         private IAppointmentRepo _repoA;
-        public int PageSize = 5;
         private AppointmentContext _context { get; set; }
 
 
-        // this is for later when we get the database up
+        // setting up database repos
         public HomeController(ILogger<HomeController> logger, IAppointmentRepo repoA, AppointmentContext con)
         {
             _logger = logger;
             _repoA = repoA;
             _context = con;
         }
-
+        
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-
+        //The Post action for when the group information is submitted. 
         [HttpPost]
         public IActionResult Index(Group g)
         {
@@ -65,11 +64,11 @@ namespace Project_1.Controllers
             return View();
         }
       
-        //new SignUp action for when we get that working
         public IActionResult SignUp(string day)
         {
             return View(new AppointmentsListViewModel
             {
+                //adds a filter so you can narrow it down by day.
                 appointments = _repoA.appointments
                 .Where(p => day == null || p.Day == day)
                 .OrderBy(p => p.AppointmentID)
@@ -77,10 +76,11 @@ namespace Project_1.Controllers
                 CurrentDay = day
             }); 
         }
-
+        //the Post action for when signup form is submitted.
         [HttpPost]
         public IActionResult Form(int AppointmentID)
         {
+            //pulls the appointment information to then display duing the group form
             var app = (from appo in _repoA.appointments
                        where appo.AppointmentID == AppointmentID
                        select new Appointment()
