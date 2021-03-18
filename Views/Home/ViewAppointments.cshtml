@@ -9,7 +9,7 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Day</th><th>Time</th><th>Appointments</th>
+                <th>Day</th><th>Time</th><th>Group Name</th><th>Group Size</th><th>Group Email</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +17,7 @@
             @foreach (var x in ViewBag.results)
             {
                 <tr>
-                    <td>@x.Day</td><td>@x.Hour @x.AmPm</td><td>@x.Name</td>
+                    <td>@x.Day</td><td>@x.Hour @x.AmPm</td><td>@x.Name</td><td>@x.Size</td><td>@x.Email</td>
                 </tr>
             }
         </tbody>
