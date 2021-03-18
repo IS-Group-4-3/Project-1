@@ -1,8 +1,10 @@
 ﻿@model Group
 
-
+<div>
+    <h5>Please Fill Out This Form to Reserve a Tour</h5>
+    <br />
+</div>
 <form method="post" asp-controller="Home" asp-action="Index">
-    <span>@ViewBag.AppID</span>
     <div>
         <label asp-for="Name">Group Name: </label>
         <input asp-for="Name" required />
@@ -20,7 +22,7 @@
     <br />
     <div>
         <label asp-for="Phone">Phone: </label>
-        <input asp-for="Phone" required />
+        <input asp-for="Phone" />
     </div>
     <br />
     <input type="hidden" asp-for="AppointmentID" value="@ViewBag.AppID"/>
