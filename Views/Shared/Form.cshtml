@@ -1,7 +1,7 @@
 ﻿@model Group
 
 
-<form method="post">
+<form method="post" asp-controller="Home" asp-action="Index">
     <span>@ViewBag.AppID</span>
     <div>
         <label asp-for="Name">Group Name: </label>
