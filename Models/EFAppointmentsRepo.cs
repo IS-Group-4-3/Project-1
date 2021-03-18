@@ -11,6 +11,11 @@ namespace Project_1.Models
             _context = context;
         }
 
+        public AppointmentContext GetContext()
+        {
+            return _context;
+        }
+
         public IQueryable<Appointment> appointments => _context.Appointments;
 
     }

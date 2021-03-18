@@ -17,19 +17,30 @@ namespace Project_1.Controllers
         //variables for the database and the pagesize
         private IAppointmentRepo _repo;
         public int PageSize = 5;
+        private AppointmentContext _context { get; set; }
+
 
         // this is for later when we get the database up
-        public HomeController(ILogger<HomeController> logger, IAppointmentRepo repo)
+        public HomeController(ILogger<HomeController> logger, IAppointmentRepo repo, AppointmentContext con)
         {
             _logger = logger;
             _repo = repo;
+            _context = con;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Index(Group g)
+        {
+
+
+            return View();
+        }
         public IActionResult ViewAppointments()
         {
             return View();
@@ -56,11 +67,8 @@ namespace Project_1.Controllers
         //        CurrentDay = day
         //    });
         //}
-        //public IActionResult SignUp()
-        //{
-        //    return View();
-        //}
 
+        
         //new SignUp action for when we get that working
         public IActionResult SignUp()
         {
@@ -68,15 +76,16 @@ namespace Project_1.Controllers
             {
                 appointments = _repo.appointments
                 .OrderBy(p => p.AppointmentID)
-                //PagingInfo = null,
-                //CurrentDate = null
-            }); ;
+            }); 
         }
 
         [HttpPost]
         public IActionResult Form(int AppointmentID)
         {
+            _context.Appointments.FirstOrDefault(p => p.AppointmentID == AppointmentID).Available = false;
+            _context.SaveChanges();
             ViewBag.AppID = AppointmentID;
+
             return View();
         }
         public IActionResult Privacy()
