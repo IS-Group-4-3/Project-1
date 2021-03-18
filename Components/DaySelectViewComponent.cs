@@ -7,30 +7,21 @@ using Project_1.Models;
 
 namespace Project_1.Components
 {
-    public class DaySelectViewComponent : ViewComponent 
+    public class DaySelectViewComponent : ViewComponent
     {
         private IAppointmentRepo _repo;
 
-        public DaySelectViewComponent(IAppointmentRepo r)
+        public DaySelectViewComponent (IAppointmentRepo r)
         {
             _repo = r;
         }
-
-        public string Invoke()
+        public IViewComponentResult Invoke()
         {
-            return "This worked";
+            ViewBag.SelectedDay = RouteData?.Values["day"];
+
+            return View(_repo.appointments
+                .Select(x => x.Day)
+                .Distinct());
         }
-        //public IViewComponentResult Invoke()
-        //{
-        //    ViewBag.SelectedDay = RouteData?.Values["day"];
-
-        //    return View(
-        //        _repo.appointments
-        //        .Select(x => x.Day)
-        //        .Distinct()
-        //        .OrderBy(x => x)
-        //        );
-        //}
-
     }
 }

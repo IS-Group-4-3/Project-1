@@ -62,7 +62,6 @@ namespace Project_1
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -78,10 +77,6 @@ namespace Project_1
                     "{day}",
                     new { Controller = "Home", action = "Index" }
                     );
-
-
-                //endpoints.MapDefaultControllerRoute();
-                //endpoints.MapRazorPages();
             });
 
             //Seed data function

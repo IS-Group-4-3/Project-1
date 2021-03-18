@@ -2,17 +2,17 @@
 @{
     ViewData["Title"] = "Sign-Up";
 }
-
 @model AppointmentsListViewModel
 
 <div class="text-center">
     <div>
         <h1 class="display-4">Sign-Up for a Tour!</h1>
     </div>
-
+    <br />
     <div>
-        <vc:day-select />
+       <vc:day-select />
     </div>
+    <br />
 
     <table class="table table-bordered table-striped">
 
@@ -30,7 +30,6 @@
 
             @foreach (var x in Model.appointments)
             {
-                
                 <tr>
                     <td>
                         @x.Day
