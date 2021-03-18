@@ -37,7 +37,9 @@ namespace Project_1.Controllers
         [HttpPost]
         public IActionResult Index(Group g)
         {
-
+            _context.Groups.Add(g);
+            _context.Appointments.FirstOrDefault(p => p.AppointmentID == g.AppointmentID).Available = false;
+            _context.SaveChanges();
 
             return View();
         }
@@ -82,8 +84,6 @@ namespace Project_1.Controllers
         [HttpPost]
         public IActionResult Form(int AppointmentID)
         {
-            _context.Appointments.FirstOrDefault(p => p.AppointmentID == AppointmentID).Available = false;
-            _context.SaveChanges();
             ViewBag.AppID = AppointmentID;
 
             return View();
