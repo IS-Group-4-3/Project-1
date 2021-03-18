@@ -66,12 +66,15 @@ namespace Project_1.Controllers
         }
       
         //new SignUp action for when we get that working
-        public IActionResult SignUp()
+        public IActionResult SignUp(string day)
         {
             return View(new AppointmentsListViewModel
             {
                 appointments = _repoA.appointments
+                .Where(p => day == null || p.Day == day)
                 .OrderBy(p => p.AppointmentID)
+                ,
+                CurrentDay = day
             }); 
         }
 

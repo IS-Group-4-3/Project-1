@@ -26,8 +26,7 @@
 
             @foreach (var x in Model.appointments)
             {
-                if (x.Available != false)
-                {
+                
                 <tr>
                     <td>
                         @x.Day
@@ -36,7 +35,6 @@
                         <partial name="AppFormButton" model="x" />
                     </td>
                 </tr>
-                }
             }
         </tbody>
     </table>

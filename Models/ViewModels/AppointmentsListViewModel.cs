@@ -11,6 +11,6 @@ namespace Project_1.Models.ViewModels
         //public PagingInfo PagingInfo { get; set; }
 
         //Added a currentcategory variable
-        //public string CurrentDay { get; set; }
+        public string CurrentDay { get; set; }
     }
 }
