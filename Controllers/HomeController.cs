@@ -45,11 +45,11 @@ namespace Project_1.Controllers
         }
         public IActionResult ViewAppointments()
         {
-            
+            //creating the results object which should show all scheduled appointments
             var results = (from app in _context.Appointments
                            join gr in _context.Groups
-                           on app.AppointmentID equals gr.AppointmentID
-                           select new CombinedViewModel()
+                           on app.AppointmentID equals gr.AppointmentID //joining the two database objects together to get all information for a booked appointment
+                           select new CombinedViewModel() //assigning the values from the joined databases to the new variables in the new ViewModel
                            {
                                Day = app.Day,
                                Hour = app.Hour,
@@ -58,36 +58,13 @@ namespace Project_1.Controllers
                                Name = gr.Name,
                                Size = gr.Size,
                                Email = gr.Email
-                           }).ToList();
+                           }).ToList(); //sending the results to a list so that it can be pushed the the ViewBag
 
-            ViewBag.results = results;
+            ViewBag.results = results; 
 
             return View();
         }
-
-        // New ViewAppointments Action for when we get that working
-        //public IActionResult ViewAppointments(string day, int pageNum = 1)
-        //{
-        //    return View(new AppointmentsListViewModel
-        //    {
-        //        Appointments = _repo.appointments
-        //            .Where(p => day == null || p.day == day)
-        //            .OrderBy(p => p.AppointmentID)
-        //            .Skip((pageNum - 1) * PageSize)
-        //            .Take(PageSize)
-        //        ,
-        //        PagingInfo = new PagingInfo
-        //        {
-        //            CurrentPage = pageNum,
-        //            ItemsPerPage = PageSize,
-        //            TotalNumItems = day == null ? _repo.appointments.Count() :
-        //                _repo.appointments.Where(x => x.day == day).Count()
-        //        },
-        //        CurrentDay = day
-        //    });
-        //}
-
-        
+      
         //new SignUp action for when we get that working
         public IActionResult SignUp()
         {
