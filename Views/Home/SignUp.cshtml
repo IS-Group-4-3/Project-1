@@ -10,6 +10,7 @@
     </div>
     <br />
     <div>
+        <!--Adds a partial view that allows users to filter the list by day-->
        <vc:day-select />
     </div>
     <br />
@@ -28,6 +29,7 @@
         </thead>
         <tbody>
 
+            <!--Adds a button to each available time for users to fill out the form-->
             @foreach (var x in Model.appointments)
             {
                 <tr>
