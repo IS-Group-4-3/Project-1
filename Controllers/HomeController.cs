@@ -45,7 +45,13 @@ namespace Project_1.Controllers
         }
         public IActionResult ViewAppointments()
         {
-            return View();
+            return View(new AppointmentsListViewModel
+            {
+                appointments = _repo.appointments
+                .Where(p => p.Available == false)
+                //PagingInfo = null,
+                //CurrentDate = null
+            });
         }
 
         // New ViewAppointments Action for when we get that working
