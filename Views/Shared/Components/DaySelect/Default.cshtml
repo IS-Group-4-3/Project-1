@@ -1,0 +1,15 @@
+﻿@model IEnumerable<string>
+
+<a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home"
+   asp-route-category="">
+    Home
+</a>
+
+@foreach (string day in Model)
+{
+    <a class="btn btn-block @(day == ViewBag.SelectedDay ? "btn-primary" : "btn-outline-secondary")"
+       asp-action="Index" asp-controller="Home"
+       asp-route-category="@day" asp-route-pageNum="1">
+        @day
+    </a>
+}

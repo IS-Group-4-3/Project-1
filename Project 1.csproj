@@ -6,10 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Components\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Pages\Shared\" />
-    <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
 
   <ItemGroup>
