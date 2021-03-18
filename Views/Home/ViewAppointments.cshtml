@@ -2,10 +2,26 @@
     ViewData["Title"] = "View Appointments";
 }
 
+@model AppointmentsListViewModel
+
 <div class="text-center">
-    <h1 class="display-4">Appointments</h1>
-
-    <p>not sure how these will eventually display at the moment.</p>
-    <p>most likey use a for each loop to go through everything we have in the database. If we want to get real spicy we could paginate it and potentially even do a filter funtion to narrow down the data range</p>
-
+    <div>
+        <h1 class="display-4">Appointments</h1>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Day</th><th>Time</th><th>Appointments</th>
+            </tr>
+        </thead>
+        <tbody>
+        @* loops through appointments to show only booked appointments. *@    
+            @foreach (var x in Model.appointments)
+            {
+                <tr>
+                    <td>@x.Day</td><td>@x.Hour @x.AmPm</td><td>@x.AppointmentID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
