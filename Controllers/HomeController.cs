@@ -47,7 +47,7 @@ namespace Project_1.Controllers
         {
             //creating the results object which should show all scheduled appointments
             var results = (from app in _context.Appointments
-                           join gr in _context.Groups
+                           join gr in _context.Groups //because of the inner join only appointments that have a group will be included in the data.
                            on app.AppointmentID equals gr.AppointmentID //joining the two database objects together to get all information for a booked appointment
                            select new CombinedViewModel() //assigning the values from the joined databases to the new variables in the new ViewModel
                            {
