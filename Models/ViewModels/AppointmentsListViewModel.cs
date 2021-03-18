@@ -12,6 +12,5 @@ namespace Project_1.Models.ViewModels
 
         //Added a currentcategory variable
         //public string CurrentDay { get; set; }
-
     }
 }

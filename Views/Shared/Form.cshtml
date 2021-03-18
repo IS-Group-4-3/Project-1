@@ -1,5 +1,6 @@
 ﻿@model Group
 
+
 <form method="post">
     <span>@ViewBag.AppID</span>
     <div>
@@ -22,5 +23,6 @@
         <input asp-for="Phone" required />
     </div>
     <br />
+    <input type="hidden" asp-for="AppointmentID" value="@ViewBag.AppID"/>
     <button type="submit">Submit</button>
 </form>

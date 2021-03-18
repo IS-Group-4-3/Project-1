@@ -8,5 +8,9 @@ namespace Project_1.Models
     public interface IAppointmentRepo
     {
         IQueryable<Appointment> appointments { get; }
+
     }
+
+    
+
 }
